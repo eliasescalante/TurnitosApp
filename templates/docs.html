@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentación API - Gestión de Turnos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 40px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        code {
+            background: #eee;
+            padding: 4px 6px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .endpoint {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h1>📘 API REST – Gestión de Turnos Médicos</h1>
+<p>Base URL: <code>http://127.0.0.1:5000</code></p>
+
+<hr>
+
+<div class="endpoint">
+    <h2>🔹 GET /medicos</h2>
+    <p>Devuelve el listado de todos los médicos.</p>
+
+    <p><strong>Ejemplo (Postman / navegador):</strong></p>
+    <pre>GET http://127.0.0.1:5000/medicos</pre>
+
+    <p><strong>Respuesta:</strong></p>
+    <pre>[
+  {
+    "id": 1,
+    "nombre": "Dr. House",
+    "especialidad": "Diagnóstico"
+  }
+]</pre>
+</div>
+
+<div class="endpoint">
+    <h2>🔹 GET /turnos/&lt;medico_id&gt;</h2>
+    <p>Obtiene todos los turnos de un médico específico.</p>
+
+    <p><strong>Ejemplo:</strong></p>
+    <pre>GET http://127.0.0.1:5000/turnos/1</pre>
+
+    <p><strong>Respuesta:</strong></p>
+    <pre>[
+  {
+    "id": 3,
+    "fecha_hora": "2024-12-15 10:00:00",
+    "nombre_paciente": "Ana Gomez",
+    "medico_id": 1
+  }
+]</pre>
+</div>
+
+<div class="endpoint">
+    <h2>🔹 POST /turnos</h2>
+    <p>Reserva un turno si el horario está disponible.</p>
+
+    <p><strong>Headers:</strong></p>
+    <pre>Content-Type: application/json</pre>
+
+    <p><strong>Body (JSON):</strong></p>
+    <pre>{
+  "medico_id": 1,
+  "fecha_hora": "2024-12-15 10:00:00",
+  "paciente": "Ana Gomez"
+}</pre>
+
+    <p><strong>Respuesta exitosa:</strong></p>
+    <pre>{
+  "message": "Turno confirmado"
+}</pre>
+
+    <p><strong>Error:</strong></p>
+    <pre>{
+  "error": "Turno no disponible"
+}</pre>
+</div>
+
+<hr>
+
+<p>🧪 Esta API puede ser consumida desde Postman, frontend web o aplicaciones móviles.</p>
+
+</body>
+</html>
