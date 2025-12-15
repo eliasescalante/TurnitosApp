@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 from dotenv import load_dotenv
 from routes.medicos_routes import medicos_bp
@@ -22,4 +23,4 @@ if __name__ == "__main__":
     print(" DOCS. : http://127.0.0.1:5000/docs")
     print("====================================\n")
 
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=os.getenv("PORT", default=5000))
