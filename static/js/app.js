@@ -1,7 +1,6 @@
 // URL base de nuestra API REST
 // Cambiar solo esto si el backend se deploya en otro servidor
-const API = "http://127.0.0.1:5000"
-
+const API = ""
 
 // ======================================================
 // FUNCIÓN: CARGAR MÉDICOS
