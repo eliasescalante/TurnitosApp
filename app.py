@@ -15,6 +15,10 @@ app.register_blueprint(turnos_bp)
 def docs():
     return render_template("docs.html")
 
+@app.get("/")
+def index():
+    return render_template("front.html")
+
 if __name__ == "__main__":
     print("\n====================================")
     print(" API REST TURNITOS")

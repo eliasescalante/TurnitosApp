@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo API Turnos</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<h1>Demo Consumo API REST</h1>
+
+<h2>Médicos</h2>
+<button onclick="cargarMedicos()">Cargar médicos</button>
+<ul id="listaMedicos"></ul>
+
+<h2>Turnos del médico</h2>
+<input type="number" id="medicoId" placeholder="ID médico">
+<button onclick="cargarTurnos()">Ver turnos</button>
+<ul id="listaTurnos"></ul>
+
+<h2>Reservar turno</h2>
+
+<input type="number" id="medico_id" placeholder="ID médico">
+<input type="datetime-local" id="fecha_hora">
+<input type="text" id="paciente" placeholder="Nombre paciente">
+
+<button onclick="crearTurno()">Reservar</button>
+
+<p id="respuesta"></p>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
